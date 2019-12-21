@@ -74,8 +74,12 @@ export default {
             data: this.loginForm
           }).then(result => {
             window.localStorage.setItem('user-token', result.data.data.token)// 前端缓存令牌
-          }).catch(error => {
-            console.log(error)
+            this.$router.push('/')
+          }).catch(() => {
+            this.$message({
+              message: '您的手机号整错了',
+              type: 'warning'
+            })
           })
         }
       })
