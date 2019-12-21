@@ -66,9 +66,17 @@ export default {
   methods: {// 提交登录表单
     submitLogin () {
       // el-form实例
-      this.$refs.myForm.validate(function (isOk) {
+      this.$refs.myForm.validate((isOk) => {
         if (isOk) {
-          console.log('前端校验成功，发送用户名和密码去后端校验')
+          this.$axios({
+            url: '/authorizations', // 请求地址
+            method: 'post',
+            data: this.loginForm
+          }).then(result => {
+            window.localStorage.setItem('user-token', result.data.data.token)// 前端缓存令牌
+          }).catch(error => {
+            console.log(error)
+          })
         }
       })
     }
