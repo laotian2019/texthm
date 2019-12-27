@@ -10,21 +10,21 @@
             首页
         </el-menu-item>
         <!-- 二级导航 -->
-        <el-submenu>
+        <el-submenu index='1-4'>
             <span slot="title">内容管理</span>
             <!-- 放置el-menu-item -->
-            <el-menu-item>发布文章</el-menu-item>
-            <el-menu-item>内容列表</el-menu-item>
-            <el-menu-item>评论列表</el-menu-item>
-            <el-menu-item>素材管理</el-menu-item>
+            <el-menu-item index='1-1'>发布文章</el-menu-item>
+            <el-menu-item index='1-2'>内容列表</el-menu-item>
+            <el-menu-item index='1-3'>评论列表</el-menu-item>
+            <el-menu-item index='1-4'>素材管理</el-menu-item>
         </el-submenu>
-        <el-submenu>
+        <el-submenu index='2'>
             <span slot="title">粉丝管理</span>
             <!-- 放置el-menu-item -->
-            <el-menu-item>图文数据</el-menu-item>
-            <el-menu-item>粉丝概况</el-menu-item>
-            <el-menu-item>粉丝画像</el-menu-item>
-            <el-menu-item>粉丝列表</el-menu-item>
+            <el-menu-item index='2'>图文数据</el-menu-item>
+            <el-menu-item index='3'>粉丝概况</el-menu-item>
+            <el-menu-item index='4'>粉丝画像</el-menu-item>
+            <el-menu-item index='5'>粉丝列表</el-menu-item>
         </el-submenu>
         <el-menu-item>
             账户信息
