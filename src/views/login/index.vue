@@ -74,8 +74,10 @@ export default {
             data: this.loginForm
           }).then(result => {
             window.localStorage.setItem('user-token', result.data.data.token)// 前端缓存令牌
-            this.$router.push('/')
+            this.$router.push('/home')// 跳转主页
+            // 成功后会进入then
           }).catch(() => {
+            // elementUI的方法
             this.$message({
               message: '您的手机号整错了',
               type: 'warning'

@@ -10,10 +10,10 @@
       <!-- 右侧 -->
       <el-col class="right" :span="4">
         <el-row type="flex" justify="end" align="middle">
-        <img src="../../assets/img/avatar.jpg" alt="">
+        <img :src="userInfo.photo ? userInfo.photo:defaultImg" alt="">
         <!-- 下拉菜单 -->
         <el-dropdown>
-        <span>倾倾倾</span>
+        <span>{{ userInfo.name }}</span>
         <!-- 下拉菜单 具名插槽 -->
         <el-dropdown-menu slot="dropdown">
             <!-- 下拉内容 -->
@@ -28,7 +28,29 @@
 </template>
 
 <script>
-
+// import { log } from 'util'
+export default {
+  data () {
+    return {
+      userInfo: {}, // 用户信息
+      defaultImg: require('../../assets/img/avatar.jpg')
+    }
+  },
+  created () {
+    let token = window.localStorage.getItem('user-token') // 获取令牌信息
+    // 查询数据
+    this.$axios({
+      url: '/user/profile',
+      // headers参数
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(result => {
+      this.userInfo = result.data.data
+      // console.log(result.data)
+    })
+  }
+}
 </script>
 
 <style lang="less" scoped>
