@@ -15,7 +15,7 @@
         </el-header>
       <!-- 主要区域 -->
       <el-main>
-        主要区域
+        <!-- 二级路由容器 -->
         </el-main>
     </el-container>
   </el-container>
