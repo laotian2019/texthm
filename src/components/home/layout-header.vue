@@ -43,7 +43,7 @@ export default {
       // headers参数
 
     }).then(result => {
-      this.userInfo = result.data.data
+      this.userInfo = result.data
       // console.log(result.data)
     })
   },
