@@ -68,6 +68,9 @@ export default {
       // el-form实例
       this.$refs.myForm.validate((isOk) => {
         if (isOk) {
+          // 认为前端校验登录成功
+          // 地址参数 查询参数 params对象
+          // body参数 data对象
           this.$axios({
             url: '/authorizations', // 请求地址
             method: 'post',
@@ -76,12 +79,6 @@ export default {
             window.localStorage.setItem('user-token', result.data.token)// 前端缓存令牌
             this.$router.push('/home')// 跳转主页
             // 成功后会进入then
-          }).catch(() => {
-            // elementUI的方法
-            this.$message({
-              message: '您的手机号整错了',
-              type: 'warning'
-            })
           })
         }
       })
